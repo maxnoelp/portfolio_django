@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from portfolio.landingpage.models import AboutMeText
+
+
+class AboutMeAdmin(admin.ModelAdmin):
+    list_display = ("text", "image")
+
+
+admin.site.register(AboutMeText, AboutMeAdmin)

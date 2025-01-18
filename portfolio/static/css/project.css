@@ -11,3 +11,27 @@
   background-color: #f2dede;
   border-color: #eed3d7;
 }
+
+.rotate-img {
+  transform: rotate(22.5deg);
+  top: -3rem;
+  right: 3.5rem;
+  max-height: 180px;
+  max-width: 240px;
+}
+
+@media (max-width: 1400px) {
+  .rotate-img {
+    top: -3.5rem;
+    right: 1.5rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .rotate-img {
+    top: -3.5rem;
+    right: 0rem;
+    max-height: 120px;
+    max-width: 180px;
+  }
+}

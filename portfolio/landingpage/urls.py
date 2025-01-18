@@ -3,5 +3,5 @@ from django.urls import path
 
 app_name = "portfolio.landingpage"
 urlpatterns = [
-    path("", view=AboutMeView, name="aboutMe"),
+    path("", AboutMeView.as_view(), name="aboutMe"),
 ]
