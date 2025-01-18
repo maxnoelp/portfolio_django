@@ -18,3 +18,4 @@ django-crispy-forms==2.3  # https://github.com/django-crispy-forms/django-crispy
 crispy-bootstrap5==2024.10  # https://github.com/django-crispy-forms/crispy-bootstrap5
 django-redis==5.4.0  # https://github.com/jazzband/django-redis
 django-webpack-loader==3.1.1  # https://github.com/django-webpack/django-webpack-loader
+django-filer==3.3.1 # https://django-filer.readthedocs.io/en/latest/installation.html
