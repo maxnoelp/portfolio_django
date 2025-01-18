@@ -42,6 +42,7 @@ class CodeProjects(models.Model):
         blank=True,
         null=True,
         on_delete=models.CASCADE,
+        related_name="codeproject_left_images",
     )
     image_left_alt = models.CharField(_("links Image Alt Text"), max_length=200)
     image_left_title = models.CharField(_("links Image Titel"), max_length=200)
@@ -50,6 +51,7 @@ class CodeProjects(models.Model):
         blank=True,
         null=True,
         on_delete=models.CASCADE,
+        related_name="codeproject_right_images",
     )
     image_right_alt = models.CharField(_("Image rechts Alt Text"), max_length=200)
     image_right_title = models.CharField(_("Image rechts Titel"), max_length=200)
