@@ -22,7 +22,7 @@ class AboutMeText(models.Model):
 
 class CodingSkills(models.Model):
     icon = FilerImageField(
-        verbose=_("Icon"),
+        _("Icon"),
         blank=True,
         null=True,
         on_delete=models.CASCADE,

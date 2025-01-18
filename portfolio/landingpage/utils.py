@@ -1,4 +1,4 @@
-from django.utils import getlazy as _
+from django.utils.translation import gettext_lazy as _
 
 CODE_LANGUAGE = (
     ("JavaScript", _("Javascript")),
