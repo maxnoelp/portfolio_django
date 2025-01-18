@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=portfolio
+POSTGRES_USER=opuIBvBVdWLGuKjudHbeKOfLISaEevfH
+POSTGRES_PASSWORD=VlRK62uK0ZvaRwhdVoxZp62cD2Qj6iNkoLk6jdJ62b6raIpOahhG35wYdGr64J7o
