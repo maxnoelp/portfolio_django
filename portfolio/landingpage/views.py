@@ -1,32 +1,21 @@
-from django.views.generic import ListView
+from django.views.generic import TemplateView
 
+from portfolio.landingpage.filters import ProjectTagsFilter
 from portfolio.landingpage.models import AboutMeText
 from portfolio.landingpage.models import CodeProjects
 from portfolio.landingpage.models import CodingSkills
 
 
-class AboutMeView(ListView):
-    model = AboutMeText
+class LandingPageView(TemplateView):
     template_name = "landingpage/landingpage.html"
-    context_object_name = "about"
 
     def get_context_data(self, **kwargs):
-        return super().get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
+        context["about"] = AboutMeText.objects.all()
+        context["skills"] = CodingSkills.objects.all()
+        context["projects"] = CodeProjects.objects.all()
+        tags = ProjectTagsFilter(self.request.GET, queryset=CodeProjects.objects.all())
 
-
-class CodingSkillView(ListView):
-    model = CodingSkills
-    template_name = "landingpage/landingpage.html"
-    context_object_name = "skill"
-
-    def get_context_data(self, **kwargs):
-        return super().get_context_data(**kwargs)
-
-
-class CodeProjects(ListView):
-    model = CodeProjects
-    template_name = "landingpage/landingpage.html"
-    context_object_name = "code"
-
-    def get_context_data(self, **kwargs):
-        return super().get_context_data(**kwargs)
+        context["filter"] = tags
+        context["projects"] = tags.qs
+        return context

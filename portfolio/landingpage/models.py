@@ -2,6 +2,7 @@ from ckeditor.fields import RichTextField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from filer.fields.image import FilerImageField
+
 from portfolio.landingpage.utils import CODE_LANGUAGE
 
 
@@ -55,6 +56,8 @@ class CodeProjects(models.Model):
     )
     image_right_alt = models.CharField(_("Image rechts Alt Text"), max_length=200)
     image_right_title = models.CharField(_("Image rechts Titel"), max_length=200)
+    # url repository
+    # url title
 
     def __str__(self):
         return self.title

@@ -35,3 +35,12 @@
     max-width: 180px;
   }
 }
+
+.icon-image {
+  height: 64px;
+  width: 64px;
+}
+
+.card-max-width {
+  max-width: 540px;
+}

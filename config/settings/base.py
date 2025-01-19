@@ -83,6 +83,7 @@ THIRD_PARTY_APPS = [
     "easy_thumbnails",
     "filer",
     "ckeditor",
+    "django_filters",
 ]
 
 LOCAL_APPS = [

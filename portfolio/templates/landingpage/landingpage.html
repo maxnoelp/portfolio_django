@@ -1,19 +1,96 @@
 {% extends "base.html" %}
+
 {% load static %}
+
 {% block content %}
-    {% for item in about %}
+  {% for item in about %}
     <div class="mt-5">
-        <div class="col-12 col-sm-10 mx-auto border border-2 px-3">
-            <div class="row">
-                <div>
-                    <p>{{ item.text|safe }}</p>
-                </div>
-                <img src="{{ item.image.url }}" alt="{{ item.image_alt }}" title="{{ item.image_title }}" class="img-fluid position-absolute rotate-img">
-                <div class="d-flex d-md-none">
-                    <img src="{{ item.image.url }}" alt="{{ item.image_alt }}" title="{{ item.image_title }}" class="img-fluid position-absolute rotate-img">
-                </div>
-            </div>
+      <div class="col-12 col-sm-10 mx-auto border border-2 px-3">
+        <div class="row">
+          <div>
+            <p>{{ item.text|safe }}</p>
+          </div>
+          <img src="{{ item.image.url }}"
+               alt="{{ item.image_alt }}"
+               title="{{ item.image_title }}"
+               class="img-fluid position-absolute rotate-img" />
+          <div class="d-flex d-md-none">
+            <img src="{{ item.image.url }}"
+                 alt="{{ item.image_alt }}"
+                 title="{{ item.image_title }}"
+                 class="img-fluid position-absolute rotate-img" />
+          </div>
         </div>
+      </div>
     </div>
-    {% endfor %}
+  {% endfor %}
+  <!--Skills-->
+  <div class="container mt-5">
+    <div class="border-4 border-start ps-2">
+      <h2>Coding Skills</h2>
+    </div>
+    <div class="container text-center">
+      <div class="row row-cols-2 mt-4">
+        {% for skill in skills %}
+          <div class="col d-flex flex-column align-items-center mb-2">
+            <img class="icon-image" src="{{ skill.icon.url }}" alt="icon" titel="icon" />
+            <small class="fw-bold">{{ skill.description }}</small>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <!--Projects-->
+  <div class="container mt-5">
+    <div class="border-4 border-start ps-2">
+      <h2>Projects</h2>
+    </div>
+    <div class="row mt-3 ps-2">
+      <div class="col-12 col-sm-2">
+        <form method="get">
+          <div class="form-group">
+            <select name="tag"
+                    id="id_tag"
+                    class="form-select"
+                    aria-label="Tag Filter"
+                    onchange="this.form.submit()">
+              {% for tag in filter.form.tag.field.choices %}
+                <option type="submit"
+                        value="{{ tag.0 }}"
+                        {% if request.GET.tag == tag.0 %}selected{% endif %}>{{ tag.1 }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row mt-4">
+      {% for project in filter.qs %}
+        <div class="col-12 col-md-6 d-flex justify-content-center">
+          <div class="card mb-3 card-max-width">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{ project.image_left.url }}"
+                     class="img-fluid rounded-start h-100"
+                     alt="{{ project.image_alt }}"
+                     title="{{ project.image_title }}" />
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title border-bottom">{{ project.title }}</h5>
+                  <p class="card-text">{{ project.text|safe }}</p>
+                  <span class="badge rounded-pill text-bg-info">{{ project.tag }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <script>
+    document.getElementById('id_tag').addEventListener('change', function() {
+      this.form.submit();
+    });
+  </script>
 {% endblock content %}

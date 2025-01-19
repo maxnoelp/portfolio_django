@@ -21,3 +21,4 @@ django-webpack-loader==3.1.1  # https://github.com/django-webpack/django-webpack
 django-filer==3.3.1 # https://django-filer.readthedocs.io/en/latest/installation.html
 django-ckeditor # https://github.com/django-ckeditor/django-ckeditor
 setuptools>=65.5.0
+django-filter==24.3 # https://django-filter.readthedocs.io/en/stable/guide/install.html

@@ -1,7 +1,8 @@
-from portfolio.landingpage.views import AboutMeView
 from django.urls import path
+
+from portfolio.landingpage.views import LandingPageView
 
 app_name = "portfolio.landingpage"
 urlpatterns = [
-    path("", AboutMeView.as_view(), name="aboutMe"),
+    path("", LandingPageView.as_view(), name="aboutMe"),
 ]
